@@ -1,6 +1,19 @@
 Revision history for Posy-Plugin-Canonical
 ==========================================
 
+0.45 Fri 28 January 2005
+------------------------
+
+  * (28 Jan 2005) upgraded dependency
+
+  * (28 Jan 2005) no longer change chrono
+  	This no longer changes 'chrono' paths; there's too much mess
+  if they go wrong, and not much point in changing them anyway.
+
+  * (28 Jan 2005) removed Makefile.PL
+
+  * (28 Jan 2005) corrected licence
+
 0.40 Sat 15 January 2005
 ------------------------
 

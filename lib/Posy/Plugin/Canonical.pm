@@ -7,11 +7,11 @@ Posy::Plugin::Canonical - Posy plugin to force redirect to canonical URL.
 
 =head1 VERSION
 
-This describes version B<0.40> of Posy::Plugin::Canonical.
+This describes version B<0.45> of Posy::Plugin::Canonical.
 
 =cut
 
-our $VERSION = '0.40';
+our $VERSION = '0.45';
 
 =head1 SYNOPSIS
 
@@ -45,7 +45,10 @@ sub parse_path {
     $self->SUPER::parse_path($flow_state);
     my $path_info = $self->{path}->{info};
     $self->debug(1, "Canonical: path_info='$path_info'");
-    if ($self->{dynamic} && !$self->{path}->{error})
+    if ($self->{dynamic}
+	&& !$self->{path}->{error}
+	&& ($self->{path}->{type} =~ /entry/
+	    || $self->{path}->{type} =~ /category/))
     {
 	# Write the desired canonical URI, then check if the
 	# original path is canonical; if not, redirect.
@@ -98,17 +101,6 @@ sub parse_path {
 		. $self->{path}->{basename}
 		. '.'
 		. $self->{path}->{flavour};
-	}
-	elsif ($self->{path}->{type} eq 'chrono')
-	{
-	    # Chronological selection is expected to be at the end of the path
-	    # and can be year, year/month or year/month/day
-	    $can_path = '/' . $self->{path}->{cat_id} . '/'
-		. $self->{path}->{year} . '/';
-	    $can_path .= $self->{path}->{month} . '/'
-		if $self->{path}->{month};
-	    $can_path .= $self->{path}->{day} . '/'
-		if $self->{path}->{day};
 	}
 	else # some other type -- leave it alone
 	{

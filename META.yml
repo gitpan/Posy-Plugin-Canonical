@@ -1,16 +1,16 @@
 --- #YAML:1.0
 name: Posy-Plugin-Canonical
-version: 0.40
+version: 0.45
 author:
   - Kathryn Andersen
 abstract: Posy plugin to force redirect to canonical URL.
-license: perl
+license: bsd
 requires:
-  Posy: 0.4
+  Posy: 0.72
 build_requires:
   Test::More: 0
 provides:
   Posy::Plugin::Canonical:
     file: lib/Posy/Plugin/Canonical.pm
-    version: 0.40
-generated_by: Module::Build version 0.2607
+    version: 0.45
+generated_by: Module::Build version 0.2605
