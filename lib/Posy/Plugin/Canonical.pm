@@ -7,11 +7,11 @@ Posy::Plugin::Canonical - Posy plugin to force redirect to canonical URL.
 
 =head1 VERSION
 
-This describes version B<0.45> of Posy::Plugin::Canonical.
+This describes version B<0.50> of Posy::Plugin::Canonical.
 
 =cut
 
-our $VERSION = '0.45';
+our $VERSION = '0.50';
 
 =head1 SYNOPSIS
 
@@ -140,10 +140,9 @@ sub redirect {
     {
 	$self->debug(1, "redirecting to '$uri'");
 
-	print "Content-Type: text/html\n";
-	print "Status: 301\n";
-	print "Location: $uri\n";
-	print "\n";
+	$self->print_header(content_type=>'text/html',
+	    status=>301,
+	    extra=>"Location: $uri");
 	print "<html><body>\n";
 	print "<p>Redirecting to <a href=\"$uri\">$uri</a>.\n";
 	print "</body></html>\n";

@@ -1,6 +1,12 @@
 Revision history for Posy-Plugin-Canonical
 ==========================================
 
+0.50 Sun 30 January 2005
+------------------------
+
+  * (30 Jan 2005) using 0.80 version of print_header
+  	I'd forgotten this should use print_header too.
+
 0.45 Fri 28 January 2005
 ------------------------
 
