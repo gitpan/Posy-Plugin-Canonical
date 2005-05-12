@@ -6,7 +6,7 @@ Posy::Plugin::Canonical - Posy plugin to force redirect to canonical URL.
 
 ==== VERSION ====
 
-This describes version ``0.51'' of Posy::Plugin::Canonical.
+This describes version ``0.52'' of Posy::Plugin::Canonical.
 
 
 ==== DESCRIPTION ====
